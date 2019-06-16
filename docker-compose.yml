@@ -1,0 +1,26 @@
+version: '3.0'
+services: 
+  backend:
+    environment:
+      - TZ=Asia/Shanghai
+    restart: on-failure:10
+    image: node:12.4.0-alpine
+    ports:
+      - 801:801
+    volumes: 
+      - .:/srv
+    command:
+      - node 
+      - /srv/server.js
+  db:
+    image: postgres:12-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_DB: gary
+      POSTGRES_USER: gary
+      POSTGRES_PASSWORD: garysdevil
+      PGDATA: /var/lib/postgresql/data/pgdata
+    # volumes:
+    #   - ../pgdata:/var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
