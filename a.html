@@ -1,0 +1,16 @@
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<div id="qrcode"></div>
+<script src= "./a.js">
+</script>
+<script type="text/javascript" src="http://static.runoob.com/assets/qrcode/qrcode.min.js"></script>
+<script>
+    var qrcode1 = new QRCode(document.getElementById("qrcode"), {
+    text: "http://garys.top/storage/public/resume/xsg.pdf",
+    width: 128,
+    height: 128,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+});
+// new QRCode(document.getElementById("qrcode"), "http://garys.top");
+</script>

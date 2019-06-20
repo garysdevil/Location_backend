@@ -12,7 +12,8 @@ CREATE TABLE "hunter" (
   "ip" VARCHAR,
   "device" VARCHAR,
   "ua" VARCHAR,
-  "userId" VARCHAR
+  "userId" VARCHAR,
+  "fingerprint" VARCHAR
 );
 
 CREATE TABLE "prey"(
@@ -25,6 +26,7 @@ CREATE TABLE "prey"(
     "province" VARCHAR,
     "city" VARCHAR,
     "detail" VARCHAR,
-    "mark" int
+    "mark" int,
+    "fingerprint" VARCHAR
 )
 

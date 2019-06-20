@@ -10,6 +10,8 @@ services:
     volumes: 
       - .:/srv/Location_backend
     command:
+      - npm
+      - i
       - node 
       - /srv/Location_backend/server.js
   db:
