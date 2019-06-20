@@ -11,7 +11,7 @@ services:
       - .:/srv/Location_backend
     command:
       - node 
-      - /srv/Location_backend/server.js
+      - run
   db:
     image: postgres:12-alpine
     container_name: postgres
