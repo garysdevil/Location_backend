@@ -15,7 +15,8 @@ cd /var/jenkins_home/workspace
 cd Location_backend
 docker-compose stop
 docker-compose -f ./docker-compose-pro.yml up -d
-docker exec -i postgres psql postgres://gary:garysdevil@127.0.0.1:5432/gary < ./dao/initDB.sql
+```
 ## when it run firstly
-gary:garysdevil@127.0.0.1:5432/gary < ./dao/initDB.sql
+```
+docker exec -i postgres psql postgres://gary:garysdevil@127.0.0.1:5432/gary < ./dao/initDB.sql
 ```
