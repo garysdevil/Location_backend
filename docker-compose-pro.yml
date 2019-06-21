@@ -8,8 +8,8 @@ services:
       POSTGRES_USER: gary
       POSTGRES_PASSWORD: garysdevil
       PGDATA: /var/lib/postgresql/data/pgdata
-    # volumes:
-    #   - ../pgdata:/var/lib/postgresql/data/pgdata
+    volumes:
+      - ../pgdata:/var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
   backend:
@@ -22,8 +22,9 @@ services:
     ports:
       - 801:801
     working_dir: /srv/Location_backend
-    volumes: 
-      - /var/jenkins_home/workspace/Location_backend:/srv/Location_backend/a
+    # 在Jenkins里，映射失败
+    # volumes: 
+    #   - /var/jenkins_home/workspace/Location_backend:/srv/Location_backend/a
     depends_on:
       - db
 

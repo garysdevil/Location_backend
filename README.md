@@ -21,4 +21,5 @@ docker-compose -f ./docker-compose-pro.yml up -d
 docker exec -it jenkins bash
 cd /var/jenkins_home/workspace/Location_backend
 docker exec -i postgres psql postgres://gary:garysdevil@127.0.0.1:5432/gary < ./dao/initDB.sql
+exit
 ```
