@@ -10,7 +10,7 @@ services:
     ports:
       - 801:801
     volumes: 
-      - .:/srv/Location_backend
+      - .:/var/Location_backend
     command: npm run start -- npm run dockerInitDB
   db:
     image: postgres:12-alpine
