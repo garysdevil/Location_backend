@@ -4,4 +4,4 @@ COPY . /srv/Location_backend
 ## --registry=https://registry.npm.taobao.org
 RUN cd /srv/Location_backend
 RUN npm i
-RUN npm run start
+CMD npm run start
