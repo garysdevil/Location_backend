@@ -22,6 +22,7 @@ services:
     working_dir: /srv/Location_backend
     volumes: 
       - .:/srv/Location_backend
-    command: npm run start
     depends_on:
       - db
+    command: npm run start
+

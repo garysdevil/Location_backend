@@ -3,4 +3,3 @@ WORKDIR /srv/Location_backend
 COPY . ./
 ## --registry=https://registry.npm.taobao.org
 RUN npm i
-CMD npm run start

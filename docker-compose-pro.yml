@@ -21,10 +21,8 @@ services:
       dockerfile: ./prod.Dockerfile
     ports:
       - 801:801
-    working_dir: /srv/Location_backend
-    # 在Jenkins里，映射失败
-    # volumes: 
-    #   - /var/jenkins_home/workspace/Location_backend:/srv/Location_backend/a
     depends_on:
-      - db
+      - db    
+    command: npm run start
+
 
