@@ -4,12 +4,14 @@ services:
     environment:
       - TZ=Asia/Shanghai
     restart: on-failure:10
-    image: node:12.4.0-alpine
+    build:
+      context: .
+      dockerfile: ./prod.Dockerfile
     ports:
       - 801:801
     volumes: 
       - .:/srv/Location_backend
-    command: npm i -- npm run -- npm run dockerInitDB
+    command: npm run start -- npm run dockerInitDB
   db:
     image: postgres:12-alpine
     container_name: postgres
