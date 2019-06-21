@@ -7,7 +7,7 @@ services:
     image: node:12.4.0-alpine
     ports:
       - 801:801
-    working_dir: /srv/Location_backend
+    # working_dir: /srv/Location_backend
     volumes: 
       - .:/srv/Location_backend
     command: npm run start
