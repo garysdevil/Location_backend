@@ -7,11 +7,10 @@ services:
     image: node:12.4.0-alpine
     ports:
       - 801:801
+    working_dir: /srv/Location_backend
     volumes: 
       - .:/srv/Location_backend
-    command:
-      - node 
-      - run
+    command: npm run start
   db:
     image: postgres:12-alpine
     container_name: postgres
