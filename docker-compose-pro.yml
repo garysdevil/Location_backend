@@ -1,16 +1,5 @@
 version: '3.0'
 services: 
-  backend:
-    environment:
-      - TZ=Asia/Shanghai
-    restart: on-failure:10
-    build:
-      context: .
-      dockerfile: ./prod.Dockerfile
-    ports:
-      - 801:801
-    volumes: 
-      - .:/srv/Location_backend/a
   db:
     image: postgres:12-alpine
     container_name: postgres
@@ -23,3 +12,17 @@ services:
     #   - ../pgdata:/var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
+  backend:
+    environment:
+      - TZ=Asia/Shanghai
+    restart: on-failure:10
+    build:
+      context: .
+      dockerfile: ./prod.Dockerfile
+    ports:
+      - 801:801
+    volumes: 
+      - .:/srv/Location_backend/a
+    depends_on:
+      - db
+
