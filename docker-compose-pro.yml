@@ -10,7 +10,7 @@ services:
     ports:
       - 801:801
     volumes: 
-      - .:/srv/Location_backend
+      - .:/srv/Location_backend/a
   db:
     image: postgres:12-alpine
     container_name: postgres
