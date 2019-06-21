@@ -5,7 +5,7 @@ npm run start
 ## init database
 npm run initDockerDB
 ```
-# Jenkins
+# run in Jenkins
 ```
 git --version
 docker -v
@@ -16,7 +16,9 @@ cd Location_backend
 docker-compose stop
 docker-compose -f ./docker-compose-pro.yml up -d
 ```
-## when it run firstly
+## when it run firstly in Jenkins
 ```
+docker exec -it jenkins bash
+cd /var/jenkins_home/workspace/Location_backend
 docker exec -i postgres psql postgres://gary:garysdevil@127.0.0.1:5432/gary < ./dao/initDB.sql
 ```
