@@ -23,6 +23,6 @@ services:
       - 801:801
     depends_on:
       - db    
-    command: npm run start
+    command: npm run start -- num run apidoc
 
 
