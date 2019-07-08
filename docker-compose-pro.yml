@@ -24,6 +24,3 @@ services:
     depends_on:
       - db    
     command: npm run start
-    
-
-
