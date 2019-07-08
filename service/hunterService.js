@@ -1,25 +1,18 @@
+
 const { hunterDao } = require('../dao/index');
 const getDevice = require('../utils/getDevice');
 const logger = require('../utils/logger');
+const { decimalConversion } = require('../utils/tools');
 
 const domain = 'garys.top:801/get/moon/';
-const generateKey = () => {
-    const arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
-        'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
-        'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-        'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-        'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-    const randomCha = [0, 0, 0, 0].map(() => {
-        const random = Math.floor(Math.random() * arr.length);
-        return arr[random];
-    }).join('');
-    const time = new Date().getTime().toString(16);
-    const key = time + randomCha;
-    return key;
-};
+
 const generateHunter = info => {
-    const publickKey = generateKey();
-    const secretKey = publickKey;
+    const randomNum = Math.floor(Math.random() * 10000) + 1;
+    const time = new Date().getTime();
+    const randomCha = `${time}${randomNum}`;
+    const publickKey = decimalConversion(randomCha);
+    const secretKey = decimalConversion(randomCha.split('').reverse().join(''));
+
     const { ip, ua } = info;
     const device = getDevice(ua);
     const userId = null;

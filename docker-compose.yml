@@ -1,5 +1,15 @@
 version: '3.0'
 services: 
+  rabbitmq:
+    restart: on-failure:10
+    image: rabbitmq:3.7-management
+    environment:
+      RABBITMQ_DEFAULT_USER: "gary"
+      RABBITMQ_DEFAULT_PASS: "gary"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+       - "15672:15672"
+       - "5672:5672"
   db:
     image: postgres:12-alpine
     container_name: postgres
