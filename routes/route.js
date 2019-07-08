@@ -1,6 +1,6 @@
+const router = require('express').Router();
 const { generateHunter, getHunter } = require('../service/hunterService');
 const { addPrey, getPrey } = require('../service/preyService');
-const app = require('../app.js');
 
 const getInfo = req => {
     const ip = req.hostname;
@@ -18,7 +18,7 @@ const getInfo = req => {
  *      "url": ""
  * }
  */
-app.get('/hunter/add', (req, res) => {
+router.get('/hunter/add', (req, res) => {
     const info = getInfo(req);
     const url = generateHunter(info);
     res.send(url);
@@ -32,7 +32,7 @@ app.get('/hunter/add', (req, res) => {
  *      {"id":1,"createTime":"","publickKey":""}
  * ]
  */
-app.get('/hunter/get', async (req, res) => {
+router.get('/hunter/get', async (req, res) => {
     const { hunter } = await getHunter();
     res.send(hunter);
 });
@@ -46,7 +46,7 @@ app.get('/hunter/get', async (req, res) => {
  *      joke:"joke"
  * }
  */
-app.get('/get/moon/*', async (req, res) => {
+router.get('/get/moon/*', async (req, res) => {
     const info = getInfo(req);
     const joke = await addPrey(info);
     res.send(joke);
@@ -60,7 +60,8 @@ app.get('/get/moon/*', async (req, res) => {
  *      {"id":1,"hunterId":5,"clickTime":}
  * ]
  */
-app.get('/prey/get', async (req, res) => {
+router.get('/prey/get', async (req, res) => {
     const data = await getPrey();
     res.send(data);
 });
+module.exports = router;
